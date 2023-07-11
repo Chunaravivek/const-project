@@ -1,5 +1,7 @@
 const express = require('express');
 
+const {Web} = require('../routes/web');
+
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('../public/api-docs/swagger.json');
 
@@ -15,5 +17,7 @@ app.use(express.static('public'));
 app.get('/api', async (req, res) => {
     res.status(200).send(`Welcome to S4apps Panel`);
 });
+
+app.use('/v1/admin', Web.getRouter());
 
 module.exports = app;
