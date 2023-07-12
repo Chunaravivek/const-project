@@ -8,19 +8,9 @@ const responseObj = {
 }
 
 class Admincontroller {
-    checkApi = (req, res, next) => {
-        try {
-            responseObj = {
-                "status": "success",
-                "msg": "Node REST API is working.",
-                "body": {}
-            }
-            res.status(200).send(responseObj);
-        } catch (error) {
-            console.log('Error', error);
-        }
-    }
+    create(req, res, next) {
+		return res.status(200).json('i have been overridden');
+	}
 }
 
-
-module.exports = new Admincontroller();
+module.exports = Admincontroller;
